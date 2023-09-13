@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:foodapp/Models/category.dart';
+// import 'package:foodapp/Models/category.dart';
+import 'package:foodapp/pages/bottomappbar.dart';
+import 'package:foodapp/pages/homepage.dart';
 
 void main() {
   runApp(const MyApp());
@@ -7,16 +9,13 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        bottomNavigationBar: const BottomAppBar(
-          height: 50,
-          color: Colors.green,
-        ),
+        backgroundColor: const Color(0xFFfffee5),
+        bottomNavigationBar: const MyBottomAppBar(),
         appBar: AppBar(
           backgroundColor: Colors.green,
           title: const Text(
@@ -96,49 +95,6 @@ class MyApp extends StatelessWidget {
         ),
         body: const MainPage(),
       ),
-    );
-  }
-}
-
-class MainPage extends StatefulWidget {
-  const MainPage({super.key});
-
-  @override
-  State<MainPage> createState() => _MainPageState();
-}
-
-class _MainPageState extends State<MainPage> {
-  List<Category> myCategory = Category.dummyCategories;
-  @override
-  Widget build(BuildContext context) {
-    return GridView.builder(
-      // physics: const NeverScrollableScrollPhysics(),
-      padding: const EdgeInsets.only(left: 20, right: 20, top: 20, bottom: 20),
-      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 2,
-        crossAxisSpacing: 10,
-        mainAxisSpacing: 10,
-        childAspectRatio: 2,
-      ),
-      itemBuilder: (context, index) {
-        return Card(
-          color: myCategory[index].color,
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
-          child: Container(
-            padding: const EdgeInsets.all(10),
-            child: Text(
-              myCategory[index].title,
-              style: const TextStyle(
-                fontFamily: 'Raleway',
-                fontSize: 17,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ),
-        );
-      },
-      itemCount: myCategory.length,
     );
   }
 }

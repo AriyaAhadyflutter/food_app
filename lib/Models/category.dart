@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class Category {
-  final String id;
+  final int id;
   final String title;
   final Color color;
    Category({
@@ -12,52 +12,52 @@ class Category {
   
  static List<Category> dummyCategories = [
   Category(
-    id: 'c1',
+    id: 0,
     title: 'Italian',
     color: Colors.purple,
   ),
   Category(
-    id: 'c2',
+    id: 1,
     title: 'Quick & Easy',
     color: Colors.red,
   ),
   Category(
-    id: 'c3',
+    id: 2,
     title: 'Hamburgers',
     color: Colors.orange,
   ),
   Category(
-    id: 'c4',
+    id: 3,
     title: 'German',
     color: Colors.amber,
   ),
   Category(
-    id: 'c5',
+    id: 4,
     title: 'Light & Lovely',
     color: Colors.blue,
   ),
   Category(
-    id: 'c6',
+    id: 5,
     title: 'Exotic',
     color: Colors.green,
   ),
   Category(
-    id: 'c7',
+    id: 6,
     title: 'Breakfast',
     color: Colors.lightBlue,
   ),
   Category(
-    id: 'c8',
+    id: 7,
     title: 'Asian',
     color: Colors.lightGreen,
   ),
   Category(
-    id: 'c9',
+    id: 8,
     title: 'French',
     color: Colors.pink,
   ),
   Category(
-    id: 'c10',
+    id: 9,
     title: 'Summer',
     color: Colors.teal,
   ),
