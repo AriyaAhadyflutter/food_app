@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:foodapp/Models/category.dart';
-import 'package:foodapp/pages/fooddetail.dart';
+import 'package:foodapp/pages/foodcards.dart';
 import 'package:page_transition/page_transition.dart';
 
 class MainPage extends StatefulWidget {
