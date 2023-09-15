@@ -89,5 +89,8 @@ flutter:
     - family: ubuntu
       fonts:
         - asset: assets/fonts/Ubuntu-Light.ttf
+    - family: openSans
+      fonts:
+        - asset: assets/fonts/open-sans.bold.ttf
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

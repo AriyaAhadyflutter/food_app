@@ -16,22 +16,26 @@ class Meal {
   final bool isLactoseFree;
   final bool isVegan;
   final bool isVegetarian;
-  const Meal(
-      {required this.id,
-      required this.categories,
-      required this.title,
-      required this.imageUrl,
-      required this.ingredients,
-      required this.steps,
-      required this.duration,
-      required this.complexity,
-      required this.affordability,
-      required this.isGlutenFree,
-      required this.isLactoseFree,
-      required this.isVegan,
-      required this.isVegetarian});
+    bool isFavorite;
+    
+   Meal({
+    required this.id,
+    required this.categories,
+    required this.title,
+    required this.imageUrl,
+    required this.ingredients,
+    required this.steps,
+    required this.duration,
+    required this.complexity,
+    required this.affordability,
+    required this.isGlutenFree,
+    required this.isLactoseFree,
+    required this.isVegan,
+    required this.isVegetarian,
+    required this.isFavorite,
+  });
 
-  static const List<Meal> dUMMYMEALS = [
+  static  List<Meal> dUMMYMEALS = [
     Meal(
       id: 0,
       categories: [
@@ -49,8 +53,6 @@ class Meal {
         '1 Tablespoon of Olive Oil',
         '1 Onion',
         '250g Spaghetti',
-        'Spices',
-        'Cheese (optional)'
       ],
       steps: [
         'Cut the tomatoes and the onion into small pieces.',
@@ -65,6 +67,7 @@ class Meal {
       isVegan: true,
       isVegetarian: true,
       isLactoseFree: true,
+      isFavorite: false,
     ),
     Meal(
       id: 1,
@@ -92,6 +95,7 @@ class Meal {
       isVegan: false,
       isVegetarian: false,
       isLactoseFree: false,
+      isFavorite: false,
     ),
     Meal(
       id: 2,
@@ -123,6 +127,7 @@ class Meal {
       isVegan: false,
       isVegetarian: false,
       isLactoseFree: true,
+      isFavorite: false,
     ),
     Meal(
       id: 3,
@@ -157,6 +162,7 @@ class Meal {
       isVegan: false,
       isVegetarian: false,
       isLactoseFree: false,
+      isFavorite: false,
     ),
     Meal(
       id: 4,
@@ -192,6 +198,7 @@ class Meal {
       isVegan: false,
       isVegetarian: true,
       isLactoseFree: true,
+      isFavorite: false,
     ),
     Meal(
       id: 5,
@@ -227,6 +234,7 @@ class Meal {
       isVegan: false,
       isVegetarian: true,
       isLactoseFree: false,
+      isFavorite: false,
     ),
     Meal(
       id: 6,
@@ -257,6 +265,7 @@ class Meal {
       isVegan: false,
       isVegetarian: true,
       isLactoseFree: false,
+      isFavorite: false,
     ),
     Meal(
       id: 7,
@@ -289,6 +298,7 @@ class Meal {
       isVegan: false,
       isVegetarian: false,
       isLactoseFree: true,
+      isFavorite: false,
     ),
     Meal(
       id: 8,
@@ -337,6 +347,7 @@ class Meal {
       isVegan: false,
       isVegetarian: true,
       isLactoseFree: false,
+      isFavorite: false,
     ),
     Meal(
       id: 9,
@@ -370,6 +381,11 @@ class Meal {
       isVegan: true,
       isVegetarian: true,
       isLactoseFree: true,
+      isFavorite: false,
     ),
   ];
+    static List<Meal> getFavoritedPlants() {
+    List<Meal> travelList = Meal.dUMMYMEALS;
+    return travelList.where((element) => element.isFavorite == true).toList();
+  }
 }

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-// import 'package:foodapp/pages/favoritepage.dart'; 
-import 'package:foodapp/pages/homepage.dart';
-import 'package:page_transition/page_transition.dart';
+import 'package:foodapp/main.dart';
+import 'package:foodapp/pages/favoritepage.dart';
+// import 'package:foodapp/pages/favoritepage.dart';
+// import 'package:foodapp/pages/homepage.dart';
+// import 'package:page_transition/page_transition.dart';
 // import 'package:foodapp/Models/category.dart';
 
 class MyBottomAppBar extends StatefulWidget {
@@ -25,16 +27,18 @@ class _MyBottomAppBarState extends State<MyBottomAppBar> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
+          //main
           GestureDetector(
             onTap: () {
               setState(() {
-                Navigator.push(
-                  context,
-                  PageTransition(
-                      child: const MainPage(), type: PageTransitionType.fade),
-                );
+                Navigator.push(context, MaterialPageRoute(
+                  builder: (context) {
+                    return const MyApp();
+                  },
+                ));
 
-                isFavoritevisible != isFavoritevisible;
+                isCategoryvisible = true;
+                isFavoritevisible = false;
               });
             },
             child: Column(
@@ -58,16 +62,17 @@ class _MyBottomAppBarState extends State<MyBottomAppBar> {
               ],
             ),
           ),
+          //favorite
           GestureDetector(
             onTap: () {
               setState(() {
-                // Navigator.push(
-                //   context,
-                //   PageTransition(
-                //       child: const FavoritPage(),
-                //       type: PageTransitionType.rightToLeft),
-                // );
-                // isCategoryvisible != isCategoryvisible;
+                Navigator.push(context, MaterialPageRoute(
+                  builder: (context) {
+                    return const FavoritPage();
+                  },
+                ));
+                isCategoryvisible = false;
+                isFavoritevisible = true;
               });
             },
             child: Column(
