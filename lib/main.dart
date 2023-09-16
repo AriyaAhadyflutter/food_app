@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:foodapp/data/widget/drawerwidget.dart';
+import 'package:foodapp/widget/drawerwidget.dart';
 // import 'package:foodapp/Models/category.dart';
 // import 'package:foodapp/pages/bottomappbar.dart';
 import 'package:foodapp/pages/favoritepage.dart';
