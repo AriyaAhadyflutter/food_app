@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:foodapp/Models/meal.dart';
+import 'package:foodapp/pages/favoritepage.dart';
 
 class FoodDetail extends StatefulWidget {
   final int foodid;
@@ -11,13 +12,16 @@ class FoodDetail extends StatefulWidget {
 
 class _FoodDetailState extends State<FoodDetail> {
   List<Meal> myMeal = Meal.dUMMYMEALS;
-    bool toggleIsFavorit(bool isFavorite) {
+  bool toggleIsFavorit(bool isFavorite) {
     return !isFavorite;
   }
+
+  bool selectFavorite = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFfffee5),
+      backgroundColor: const Color(0xFFfffee5),
       appBar: AppBar(
         title: Text(
           myMeal[widget.foodid].title,
@@ -149,14 +153,22 @@ class _FoodDetailState extends State<FoodDetail> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
+          FavoritPage(getfavorite:widget.foodid);
           setState(() {
-          bool isFavorited = toggleIsFavorit(
-                                        (myMeal[widget.foodid].isFavorite));
-                                  myMeal[widget.foodid].isFavorite = isFavorited;
+            bool isFavorited =
+                toggleIsFavorit((myMeal[widget.foodid].isFavorite));
+            myMeal[widget.foodid].isFavorite = isFavorited;
           });
         },
         backgroundColor: Colors.amberAccent,
-        child: const Icon(Icons.star_border),
+        child: Icon(
+          myMeal[widget.foodid].isFavorite == true
+              ? Icons.star
+              : Icons.star_border,
+          color: myMeal[widget.foodid].isFavorite == true
+              ? Colors.red
+              : Colors.white,
+        ),
       ),
     );
   }
