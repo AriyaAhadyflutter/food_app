@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:foodapp/pages/filterPage.dart';
 
 class MyDrawer extends StatelessWidget {
   const MyDrawer({
@@ -28,48 +28,60 @@ class MyDrawer extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 20),
-          const Padding(
-            padding: EdgeInsets.all(16.0),
-            child: Row(
-              children: [
-                Icon(
-                  Icons.restaurant_rounded,
-                  color: Color(
-                    0xFF99988a,
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: InkWell(
+              onTap: () {},
+              child: const Row(
+                children: [
+                  Icon(
+                    Icons.restaurant_rounded,
+                    color: Color(
+                      0xFF99988a,
+                    ),
                   ),
-                ),
-                SizedBox(width: 30),
-                Text(
-                  'Meals',
-                  style: TextStyle(
-                    fontFamily: 'ubuntu',
-                    fontSize: 17,
-                    fontWeight: FontWeight.bold,
+                  SizedBox(width: 30),
+                  Text(
+                    'Meals',
+                    style: TextStyle(
+                      fontFamily: 'ubuntu',
+                      fontSize: 17,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-            child: Row(
-              children: [
-                Icon(
-                  Icons.settings,
-                  color: Color(
-                    0xFF99988a,
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+            child: InkWell(
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(
+                  builder: (context) {
+                    return const Filter();
+                  },
+                ));
+              },
+              child: const Row(
+                children: [
+                  Icon(
+                    Icons.settings,
+                    color: Color(
+                      0xFF99988a,
+                    ),
                   ),
-                ),
-                SizedBox(width: 30),
-                Text(
-                  'Filters',
-                  style: TextStyle(
-                    fontFamily: 'ubuntu',
-                    fontSize: 17,
-                    fontWeight: FontWeight.bold,
+                  SizedBox(width: 30),
+                  Text(
+                    'Filters',
+                    style: TextStyle(
+                      fontFamily: 'ubuntu',
+                      fontSize: 17,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ],

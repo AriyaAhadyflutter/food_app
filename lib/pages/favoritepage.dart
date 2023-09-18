@@ -20,6 +20,8 @@ class _FavoritPageState extends State<FavoritPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xFFfffee5),
+
       drawer: const MyDrawer(),
       appBar: AppBar(
         backgroundColor: Colors.green,
@@ -134,6 +136,7 @@ class FavoriteBody extends StatelessWidget {
       shrinkWrap: true,
       itemCount: myMeal.length,
       itemBuilder: (context, index) {
+        
         if (myMeal[index].isFavorite == true) {
           return Padding(
             padding: const EdgeInsets.all(8.0),

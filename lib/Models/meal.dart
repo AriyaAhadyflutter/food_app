@@ -388,4 +388,8 @@ class Meal {
     List<Meal> travelList = Meal.dUMMYMEALS;
     return travelList.where((element) => element.isFavorite == true).toList();
   }
+  static List<Meal> getglutenfreePlants() {
+    List<Meal> travelList = Meal.dUMMYMEALS;
+    return travelList.where((element) => element.isFavorite == true).toList();
+  }
 }
