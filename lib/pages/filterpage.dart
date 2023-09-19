@@ -8,10 +8,8 @@ class Filter extends StatefulWidget {
 }
 
 class _FilterState extends State<Filter> {
-  void switchFunc(bool value) {
-    setState(() {
-      Bools.isglutenfree = value;
-    });
+  bool toggleIsGF(bool isGF) {
+    return !isGF;
   }
 
   @override
@@ -39,44 +37,88 @@ class _FilterState extends State<Filter> {
             ),
           ),
           const SizedBox(height: 30),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          MySwitch(
+            title: 'Gluten-free',
+            description: 'only include gluten-free',
+            mainbool: Bools.isglutenfree,
+          ),
+          MySwitch(
+            title: 'Lactose-free',
+            description: 'only include Lactose-free',
+            mainbool: Bools.isLactosfree,
+          ),
+          MySwitch(
+            title: 'Vegetarian',
+            description: 'only include vegetarian',
+            mainbool: Bools.isVegeterian,
+          ),
+          MySwitch(
+            title: 'Vegan',
+            description: 'only include vegan',
+            mainbool: Bools.isVegan,
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+// ignore: must_be_immutable
+class MySwitch extends StatefulWidget {
+  final String title;
+  final String description;
+  bool mainbool;
+  MySwitch({
+    super.key,
+    required this.title,
+    required this.description,
+    required this.mainbool,
+  });
+
+  @override
+  State<MySwitch> createState() => _MySwitchState();
+}
+
+class _MySwitchState extends State<MySwitch> {
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Padding(
-                padding: EdgeInsets.all(15.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'kkk',
-                      style: TextStyle(
-                        fontSize: 17,
-                        fontFamily: 'openSans',
-                      ),
-                    ),
-                    SizedBox(height: 10),
-                    Text(
-                      'kkk',
-                      style: TextStyle(
-                        fontSize: 17,
-                        fontWeight: FontWeight.w400,
-                        fontFamily: 'ubuntu',
-                      ),
-                    ),
-                  ],
+              Text(
+                widget.title,
+                style: TextStyle(
+                  fontSize: 17,
+                  fontFamily: 'openSans',
                 ),
               ),
-              Switch(
-                inactiveThumbColor: Colors.white,
-                activeColor: Colors.yellow,
-                value: Bools.isglutenfree,
-                onChanged: (value) {
-                  switchFunc(value);
-                },
+              SizedBox(height: 10),
+              Text(
+                widget.description,
+                style: TextStyle(
+                  fontSize: 17,
+                  fontWeight: FontWeight.w400,
+                  fontFamily: 'ubuntu',
+                ),
               ),
             ],
           ),
-          Text('${Bools.isglutenfree}')
+          Switch(
+            activeColor: Colors.yellow,
+            inactiveThumbColor: Colors.white,
+            value: widget.mainbool,
+            onChanged: (value) {
+              setState(() {
+                widget.mainbool = value;
+              });
+            },
+          )
         ],
       ),
     );
@@ -85,4 +127,7 @@ class _FilterState extends State<Filter> {
 
 class Bools {
   static bool isglutenfree = false;
+  static bool isLactosfree = false;
+  static bool isVegeterian = false;
+  static bool isVegan = false;
 }

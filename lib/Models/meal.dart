@@ -384,12 +384,12 @@ class Meal {
       isFavorite: false,
     ),
   ];
-    static List<Meal> getFavoritedPlants() {
-    List<Meal> travelList = Meal.dUMMYMEALS;
-    return travelList.where((element) => element.isFavorite == true).toList();
-  }
-  static List<Meal> getglutenfreePlants() {
-    List<Meal> travelList = Meal.dUMMYMEALS;
-    return travelList.where((element) => element.isFavorite == true).toList();
-  }
+  //   static List<Meal> getFavoritedPlants() {
+  //   List<Meal> travelList = Meal.dUMMYMEALS;
+  //   return travelList.where((element) => element.isFavorite == true).toList();
+  // }
+  // static List<Meal> getglutenfreePlants() {
+  //   List<Meal> travelList = Meal.dUMMYMEALS;
+  //   return travelList.where((element) => element.isFavorite == true).toList();
+  // }
 }
