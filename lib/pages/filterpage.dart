@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:foodapp/widget/drawerwidget.dart';
 
 class Filter extends StatefulWidget {
   const Filter({Key? key}) : super(key: key);
@@ -26,6 +27,7 @@ class _FilterState extends State<Filter> {
         ),
         backgroundColor: Colors.green,
       ),
+      drawer: const MyDrawer(),
       body: Column(
         children: [
           const SizedBox(height: 20),
@@ -93,15 +95,15 @@ class _MySwitchState extends State<MySwitch> {
             children: [
               Text(
                 widget.title,
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 17,
                   fontFamily: 'openSans',
                 ),
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               Text(
                 widget.description,
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 17,
                   fontWeight: FontWeight.w400,
                   fontFamily: 'ubuntu',

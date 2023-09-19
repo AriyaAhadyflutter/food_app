@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:foodapp/pages/filterPage.dart';
+import 'package:foodapp/pages/homepage.dart';
 
 class MyDrawer extends StatelessWidget {
   const MyDrawer({
@@ -31,7 +32,13 @@ class MyDrawer extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(16.0),
             child: InkWell(
-              onTap: () {},
+              onTap: () {
+                Navigator.pushReplacement(context, MaterialPageRoute(
+                  builder: (context) {
+                    return const MainPage();
+                  },
+                ));
+              },
               child: const Row(
                 children: [
                   Icon(
@@ -57,7 +64,7 @@ class MyDrawer extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
             child: InkWell(
               onTap: () {
-                Navigator.push(context, MaterialPageRoute(
+                Navigator.pushReplacement(context, MaterialPageRoute(
                   builder: (context) {
                     return const Filter();
                   },
